@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combat Area</title>
+</head>
+<body>
+    {% block content %}
+    
+    <div id="title">
+        <h1>Area de combate</h1>
+    </div>
+    
+    <div id="players-in-fight">
+        <h3>jugador 1: {{player_1.name}} - {{player_1.last_name}}</h3>
+        <h2>VS</h2>
+        <h3>jugador 2: {{player_2.name}} - {{player_2.last_name}}</h3>
+    </div>
+    <div id="status-play">
+        <h5>Round: {{fight.rounds}}</h5>
+        <h3>Marcador</h3>
+        <h5>Jugador 1:  {{fight.winner_1}}  -  {{fight.winner_2}}  :Jugador 2</h5>
+        <h5>Empates :  {{fight.tie}}</h5>
+    </div>
+    <div id="fight-form">
+        <form method="POST">
+            {% csrf_token %}
+            <div id="move_player_1">
+                <p>El jugador 1 elije primero su movimiento</p>
+                <div id="select-attack">
+                    <div id="attack-options">
+                        <label id="attack-card">
+                            <img src="{% static 'img_game/piedra.jpg' %}" alt="">
+                            <input type="radio" name="player_1" value="piedra"> Piedra
+                        </label>
+                        <label id="attack-card">
+                            <img src="{% static 'img_game/papel.JPG' %}" alt="">
+                            <input type="radio" name="player_1" value="papel"> Papel
+                        </label>
+                        <label id="attack-card">
+                            <img src="{% static 'img_game/tijera.JPG' %}" alt="">
+                            <input type="radio" name="player_1" value="tijera"> Tijera
+                        </label>
+                    </div>
+                    <div id="button-attack">
+                        <button type="button" onclick="selectMove1()">Seleccionar movimiento</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="move_player_2" style="display: none;">
+                <p>Turno del jugador 2</p>
+                <div id="select-attack">
+                    <div id="attack-options">
+                        <label id="attack-card">
+                            <img src="{% static 'img_game/piedra.jpg' %}" alt="">
+                            <input type="radio" name="player_2" value="piedra"> Piedra
+                        </label>
+                        <label id="attack-card">
+                            <img src="{% static 'img_game/papel.JPG' %}" alt="">
+                            <input type="radio" name="player_2" value="papel"> Papel
+                        </label>
+                        <label id="attack-card">
+                            <img src="{% static 'img_game/tijera.JPG' %}" alt="">
+                            <input type="radio" name="player_2" value="tijera"> Tijera
+                        </label>
+                    </div>
+                    <div id="button-attack">
+                        <button type="button" onclick="selectMove2()">Seleccionar movimiento</button>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" id="figth" style="display: none;" onclick="showMoves()">A luchar</button>
+        </form>
+        
+    </div>
+        
+    <script>
+        // Función para seleccionar el movimiento del jugador 1
+        function selectMove1() {
+            var selectedMove = document.querySelector('input[name="player_1"]:checked');
+            if (selectedMove) {
+                var move_player_1 = document.getElementById("move_player_1");
+                var move_player_2 = document.getElementById("move_player_2");
+                
+                move_player_1.style.display = "none";
+                move_player_2.style.display = "block";
+            } else {
+                // Alerta si no se selecciona ningún movimiento del jugador 1
+                alert("Por favor, selecciona un movimiento del jugador 1 antes de continuar.");
+            }
+        }
+
+        // Función para seleccionar el movimiento del jugador 2
+        function selectMove2() {
+            var selectedMove = document.querySelector('input[name="player_2"]:checked');
+            if (selectedMove) {
+                var move_player_1 = document.getElementById("move_player_1");
+                var move_player_2 = document.getElementById("move_player_2");
+                var figth = document.getElementById("figth")
+                
+                move_player_2.style.display = "none";
+                figth.style.display= "block";
+            } else {
+                // Alerta si no se selecciona ningún movimiento del jugador 2
+                alert("Por favor, selecciona un movimiento del jugador 2 antes de continuar.");
+            }
+        }
+
+        // Función para mostrar los movimientos seleccionados por ambos jugadores
+        function showMoves() {
+            var player1Move = document.querySelector('input[name="player_1"]:checked').value;
+            var player2Move = document.querySelector('input[name="player_2"]:checked').value;
+            alert("Jugador 1 seleccionó: " + player1Move + "\nJugador 2 seleccionó: " + player2Move + "\nEl resultado del combate se vera en el marcador");
+        }
+    </script>
+    
+    {% endblock %}
+</body>
+</html>

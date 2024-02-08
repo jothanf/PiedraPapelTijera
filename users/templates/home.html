@@ -1,0 +1,28 @@
+{% extends 'base.html' %}  <!-- Extiende del archivo base.html -->
+
+{% load static %}  <!-- Carga archivos estáticos como CSS y JavaScript -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>  <!-- Título de la página -->
+</head>
+<body>
+    {% block content %}  <!-- Define un bloque de contenido -->
+    <div id="title">
+        <h1>Bienvenido al juego</h1>  <!-- Título principal -->
+        <h2>Piedra, Papel O Tijera</h2>  <!-- Subtítulo -->
+    </div>
+    <div id="rules-start">
+        <h2>Explicaremos las reglas del juego</h2>  <!-- Título de la sección -->
+        <p>Primero debes elegir un usuario o registrarte</p>  <!-- Descripción de las reglas -->
+        <p>Recuerda que es un juego de dos personas, ¡así que busca un amigo!</p> 
+    </div>
+    <div id="coliseum-go">
+        <a href="{% url 'coliseum' %}"><h3>Ir al coliseo</h3></a>  <!-- Enlace al coliseo -->
+    </div>
+    {% endblock %}
+</body>
+</html>

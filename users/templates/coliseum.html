@@ -1,0 +1,49 @@
+{% extends 'base.html' %}  <!-- Extiende del archivo base.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coliseum</title>  <!-- Título de la página -->
+</head>
+<body>
+    {% block content %}  <!-- Define un bloque de contenido -->
+    <div id="title">
+        <h1>Coliseo</h1>  <!-- Título principal -->
+    </div>
+    <div id="rules-start">
+        <h3>La batalla está a punto de iniciar, primero registra tu usuario o elige uno si ya está creado</h3>  <!-- Descripción de la sección -->
+    </div>
+    <div id="players-form">
+        <form method="POST">  <!-- Formulario para registrar jugadores -->
+            {% csrf_token %}  <!-- Token CSRF para proteger el formulario contra ataques de falsificación de solicitudes entre sitios -->
+
+            <div id="up-level">
+                <label for="up_level">¿Quieres un juego más emocionante?</label>  <!-- Opción para un juego más avanzado -->
+                <input type="checkbox" id="up_level" name="up_level">
+            </div>
+        
+            <div id="player-1-data">
+                <label for="name_1">Nombre jugador 1</label>  <!-- Campo para el nombre del jugador 1 -->
+                <input type="text" name="name_1" required>  <!-- Entrada de texto para el nombre, obligatorio -->
+                <label for="last_name_1">Apellido jugador 1</label>  <!-- Campo para el apellido del jugador 1 -->
+                <input type="text" name="last_name_1" required>  <!-- Entrada de texto para el apellido, obligatorio -->
+            </div>
+
+            <div id="player-2-data">
+                <label for="name_2">Nombre jugador 2</label>  <!-- Campo para el nombre del jugador 2 -->
+                <input type="text" name="name_2" required>  <!-- Entrada de texto para el nombre, obligatorio -->
+                <label for="last_name_2">Apellido jugador 2</label>  <!-- Campo para el apellido del jugador 2 -->
+                <input type="text" name="last_name_2" required>  <!-- Entrada de texto para el apellido, obligatorio -->
+            </div>
+
+            <div id="button-register">
+                <button type="submit">Registrarse</button>  <!-- Botón para enviar el formulario -->
+            </div>
+
+        </form>
+    </div>
+    {% endblock %}
+</body>
+</html>

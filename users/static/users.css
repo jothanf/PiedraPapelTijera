@@ -1,0 +1,232 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-image: linear-gradient(to bottom, #999fff, #ecefff);
+    background-size: cover;
+}
+
+img{
+    border-radius: 15px;
+    height: 100px;
+    padding: 5px;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    padding: 10px;
+    height: 40px;
+    border-radius: 15px;
+    background-color: #4924de;
+    transition: background-color 2s; 
+}
+button:hover{
+
+    background-color: #201452;
+}
+
+#title {
+    width: 40%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin: 10px auto
+}
+
+#rules-start {
+    width: 50%;
+    display: flex;
+    background-color: #7570ff85;
+    border-radius: 15px;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin: 20px auto;
+    transition: background-color 3s; 
+}
+
+#rules-start:hover {
+    background-color: #7570ff;
+}
+
+#coliseum-go {
+    width: 50%;
+    display: flex;
+    background-color: #7570ff85;
+    border-radius: 15px;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    margin: 10px auto;
+    transition: background-color 3s; 
+}
+
+#coliseum-go:hover {
+    background-color: #7570ff;
+}
+
+#players-form {
+    width: 80%;
+    display: flex;
+    background-color: #7570ff85;
+    border-radius: 15px;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    margin: 10px auto;
+    border: #614fff solid 2px; 
+}
+
+#up-level{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+}
+
+#player-1-data, #player-2-data {
+    padding: 10px;
+}
+
+#button-register {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+}
+
+#play-description {
+    width: 80%;
+    display: flex;
+    background-color: #7570ff85;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    margin: 10px auto;
+    border-radius: 15px;
+}
+
+#play-description li{
+    list-style-type: none;
+    text-align: center;
+}
+
+
+
+#players-in-fight {
+    width: 80%;
+    display: flex;
+    background-color: #7570ff85;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    margin: 10px auto;
+    border: #614fff solid 2px; 
+    border-radius: 15px;
+}
+
+#status-play {
+    width: 80%;
+    display: flex;
+    background-color: #7570ff85;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    margin: 10px auto;
+    border: #614fff solid 2px; 
+    border-radius: 15px;
+}
+
+#fight-form {
+    width: 80%;
+    display: flex;
+    background-color: #7570ff85;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    margin: 10px auto;
+    border: #614fff solid 2px; 
+    border-radius: 15px;
+}
+
+#fight-form p{
+    padding: 10px;
+    display: flex;
+    background-color: #7570ff85;
+    border-radius: 15px;
+    flex-direction: column;
+    align-items: center;
+}
+
+#select-attack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+#attack-options {
+    display: flex;
+}
+
+#button-attack {
+    padding: 10px;
+}
+
+#fight-result {
+    width: 50%;
+    display: flex;
+    background-color: #7570ff85;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    margin: 10px auto;
+    border: #614fff solid 2px;
+    border-radius: 15px;
+}
+
+#new-fihgt-link {
+    width: 50%;
+    display: flex;
+    background-color: #7570ff85;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    margin: 10px auto;
+    border: #614fff solid 2px; 
+    border-radius: 15px;
+}
+
+#new-fihgt-link a{
+    margin: 10px;
+}
+
+
+
+#attack-card{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #7570ff85;
+    border: #614fff solid 2px;
+    border-radius: 15px;
+    transition: background-color 3s; 
+}
+
+#attack-card:hover{
+    background-color: #614fff;
+
+}

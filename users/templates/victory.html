@@ -1,0 +1,36 @@
+{% extends 'base.html' %}  <!-- Extiende el diseño base.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victory</title>  <!-- Título de la página -->
+</head>
+<body>
+    {% block content %}  <!-- Bloque de contenido específico de esta página -->
+    
+    <img src="../static/img_game/lagarto.JPG" alt="">  <!-- Imagen del juego -->
+
+    <div id="title">
+        <h1>Victoria!</h1>  <!-- Título de la victoria -->
+        <p>Tenemos un ganador: {{result.grand_winner.name}} - {{result.grand_winner.last_name}}</p>  <!-- Nombre del ganador -->
+    </div>
+    
+    <div id="fight-result">
+        <!-- Resultado de la batalla -->
+        <p>El puntaje de {{result.user_1.name}} es: {{result.winner_1}}</p>  <!-- Puntaje del jugador 1 -->
+        <p>El puntaje de {{result.user_2.name}} es: {{result.winner_2}}</p>  <!-- Puntaje del jugador 2 -->
+        <p>Empates registrados: {{result.tie}}</p>  <!-- Número de empates -->
+        <p>Rounds totales: {{result.rounds}}</p>  <!-- Número total de rondas jugadas -->
+    </div>
+    
+    <div id="new-fihgt-link">
+        <!-- Enlaces para iniciar un nuevo juego o enfrentar nuevamente a los mismos luchadores -->
+        <a href="{% url 'coliseum' %}">Iniciar nuevo juego</a>
+        <a href="{% url 'try_again' result.id %}">Enfrentar de nuevo los mismos luchadores</a>
+    </div>
+    
+    {% endblock %}
+</body>
+</html>
