@@ -1,0 +1,51 @@
+{% extends 'base.html' %}  <!-- Extiende del archivo base.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coliseum2</title>
+</head>
+<body>
+    {% block content %}  <!-- Define un bloque de contenido -->
+    <div id="title">
+        <h1>Coliseo</h1>
+    </div>
+    <div id="rules-start">
+        <h3>La batalla está a punto de iniciar, elige los luchadores</h3>  <!-- Descripción de la sección -->
+    </div>
+    
+    <div id="players-form">
+        <!-- Formulario para seleccionar usuarios -->
+        <form method="POST">
+            {% csrf_token %}
+            <!-- Primer select con usuarios -->
+            <div id="player-1-data">
+                <label for="user1">Usuario 1:</label>
+                <select id="user1" name="user1">
+                    {% for user in users %}
+                    <option value="{{ user.id }}">{{ user.name }} - {{ user.last_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <!-- Segundo select con usuarios -->
+            <div id="player-1-data">
+                <label for="user2">Usuario 2:</label>
+                <select id="user2" name="user2">
+                    {% for user in users %}
+                        <option value="{{ user.id }}">{{ user.name }} - {{ user.last_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <!-- Botón para iniciar la pelea -->
+            <div id="button-register">
+                <button type="submit">Iniciar Pelea</button>
+            </div>
+        </form>
+    </div>
+    {% endblock %}
+</body>
+</html>

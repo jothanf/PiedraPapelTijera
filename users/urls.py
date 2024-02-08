@@ -23,6 +23,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     # Ruta para el coliseo donde se registran los jugadores y se inician las peleas
     path('coliseum/', views.coliseum, name='coliseum'),
+    path('coliseum2/', views.coliseum2, name='coliseum2'),
     # Ruta para la página de combate entre dos jugadores
     path('combat_area/<int:player_1_id>/<int:player_2_id>/<int:fight_id>/', views.combatArea, name='combat_area'),
     # Ruta para la página de combate avanzado entre dos jugadores

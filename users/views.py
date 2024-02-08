@@ -35,6 +35,27 @@ def coliseum(request):
             return render(request, 'error.html', {'error_message': str(e)})
     return render(request, 'coliseum.html')
 
+def coliseum2(request):
+    if request.method == 'POST':
+        # Obtener los IDs de los usuarios seleccionados
+        user1_id = request.POST.get('user1')
+        user2_id = request.POST.get('user2')
+        # Obtener los objetos UserModel correspondientes a los IDs
+        user1 = UserModel.objects.get(pk=user1_id)
+        user2 = UserModel.objects.get(pk=user2_id)
+        # Crear una nueva instancia de FightModel para la pelea entre los usuarios
+        new_fight = FightModel(user_1=user1, user_2=user2)
+        new_fight.save()
+        # Redirigir a la página de combate dependiendo de la opción elegida por el usuario
+        up_level = request.POST.get('up_level', False)
+        if up_level:
+            return redirect('combat_area_up', player_1_id=user1.id, player_2_id=user2.id, fight_id=new_fight.id)
+        return redirect('combat_area', player_1_id=user1.id, player_2_id=user2.id, fight_id=new_fight.id)
+    else:
+        # Obtener todos los usuarios para mostrar en el formulario
+        users = UserModel.objects.all()
+        return render(request, 'coliseum2.html', {'users': users})
+
 # Vista para volver a intentar una pelea
 def tryAgain(request, result):
     try:

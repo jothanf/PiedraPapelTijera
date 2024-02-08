@@ -1,40 +1,52 @@
+/* Resetear márgenes y rellenos para todos los elementos */
 *{
     margin: 0;
     padding: 0;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Ajustar altura del html y body al 100% */
 html, body {
     height: 100%;
 }
 
+/* Estilo de fondo para el body utilizando un degradado */
 body {
     background-image: linear-gradient(to bottom, #999fff, #ecefff);
     background-size: cover;
 }
 
+/* Estilo para las imágenes */
 img{
     border-radius: 15px;
     height: 100px;
     padding: 5px;
 }
 
+/* Estilo para los enlaces */
 a {
     text-decoration: none;
 }
 
+h3, h4{
+    text-align: center;
+    padding: 10px;
+}
+
+/* Estilo para los botones */
 button {
     padding: 10px;
     height: 40px;
     border-radius: 15px;
     background-color: #4924de;
-    transition: background-color 2s; 
+    transition: background-color 2s; /* Transición suave de color */
 }
+
 button:hover{
-
-    background-color: #201452;
+    background-color: #201452;  /* Color de fondo al pasar el ratón */
 }
 
+/* Estilo para el contenedor del título */
 #title {
     width: 40%;
     border-radius: 15px;
@@ -230,3 +242,78 @@ button:hover{
     background-color: #614fff;
 
 }
+
+/* Estilo para el select */
+select {
+    background-color: #bfc5ff; /* Color de fondo */
+    color: #333; /* Color del texto */
+    border: 1px solid #ccc; /* Borde sólido de 1px de grosor y color gris claro */
+    border-radius: 5px; /* Esquinas redondeadas */
+    width: 200px; /* Ancho del select */
+    padding: 8px; /* Espaciado interno */
+    font-family: Arial, sans-serif; /* Fuente */
+    font-size: 16px; /* Tamaño de la fuente */
+}
+
+/* Estilo para los option dentro del select */
+select option {
+    background-color: #bfc5ff; /* Color de fondo de cada opción */
+    color: #333; /* Color del texto de cada opción */
+}
+
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 767px) {
+    #title {
+        width: 90%;
+    }
+
+    #rules-start {
+        width: 90%;
+    }
+
+    #coliseum-go {
+        width: 90%;
+    }
+
+    
+    #players-form {
+        width: 90%;
+    }
+    
+    #player-1-data, #player-2-data {
+        display: flex;
+        padding: 10px;
+        margin: 10px;
+        flex-direction: column;
+    } 
+    #player-1-data label, #player-2-data label{
+        padding: 10px;
+        text-align: center;
+    }
+    
+    
+    #attack-options {
+        flex-direction: column;
+    }
+    
+    #button-attack {
+        padding: 10px;
+    }
+
+    #play-description {
+        width: 95%;
+        display: flex;
+        background-color: #7570ff85;
+        flex-direction: column;
+        align-items: center;
+        padding: 8px;
+        margin: 10px auto;
+        border-radius: 15px;
+    }
+
+
+
+    
+}
+
